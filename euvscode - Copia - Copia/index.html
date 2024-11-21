@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Gregory</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para a tela de carregamento */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgb(0, 0, 0), rgb(17, 17, 17),  rgb(22, 22, 22), rgb(0, 0, 0));
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #loader {
+            border: 16px solid #;
+            border-top: 16px solid #000000;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            animation: spin 3s linear infinite;
+        }
+
+        /* Animação de rotação */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilos para o conteúdo da página */
+        #content {
+            display: none; /* Inicialmente oculto */
+        }
+
+        /* Botão fixo */
+        #btn-top {
+            position: fixed;
+            bottom: 20px;        /* Distância da parte inferior */
+            right: 20px;         /* Distância da parte direita */
+            padding: 10px 15px;
+            background-color: #353535;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 14px;
+            display: none;       /* Inicialmente escondido */
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+
+        #btn-top:hover {
+            background-color: #202020;
+        }
+
+        #btn-top.show {
+            display: block;     
+            opacity: 1;
+        }
+
+        .project-1 {
+            transition: transform 0.2s ease-in-out; 
+        }
+
+        .project-1:hover {
+            transform: scale(1.1); 
+        }
+
+        .project-2 {
+            transition: transform 0.2s ease-in-out; 
+        }
+
+        .project-2:hover {
+            transform: scale(1.1); 
+        }
+
+        .project-3 {
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .project-3:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Tela de Carregamento -->
+    <div id="loading-screen">
+        <div id="loader"></div>
+    </div>
+
+    <header>
+        <h1>Meu Portfolio do Jovem dev</h1>
+        <p>Bem Vindo A Minha Página</p>
+    </header>
+    <main id="content">
+        
+        <div class="about">
+            <h2>Sobre Mim</h2>
+            <div class='imagem'>
+                <img src="eu.png.png" alt="foto de perfil" class="profile-pic" width="250px">
+            </div>
+            <p>Bem Vindo. Me chamo gregory tenho 16 anos, sou muito apaixonado por design, tenho experiência em photoshop, figma, e em 
+            algumas outras aplicações de desing, e eu tambem sei editar videos, faço musicas no estilo black metal, dungeonsynth, kellersynth, 
+            tanzelcore.</p>
+                <br>
+            <a href="contato.html" class="button">Contato</a>
+            <div></div>
+        </div>
+
+        <div class="projects">
+            <h2>Meus Projetos</h2>
+            <div class="project-1">
+                <h3>Projeto 1</h3>
+                <p> Eu ja participei e trabalhei na criação de jogos do roblox, eu fazia UI/UX e tambem criava alguns mapas.</p>
+                <div class="project1">
+                    <a href="project1.html" class="button">Ver Mais</a>
+
+                </div>
+            </div>
+            <div class="project-2">
+                <h3>Projeto 2</h3>
+                <p>Sei Mecher no figma e no photoshop, sei editar Videos e fazer logos e sites basicos.</p>
+                <div class="project2">
+                    <a href="project2.html" class="button">Ver Mais</a>
+    
+                </div>
+            </div>
+                <div class="project-3">
+                    <h3>Projeto 3</h3>
+                    <p>Eu tambem componho musica, dungeonsynth, kellersynyh, tanzelcore, blackmetal.</p>
+                    <div class="project3">
+                        <a href="project3.html" class="button">Ver Mais</a>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Seu conteúdo HTML aqui -->
+
+    <!-- O botão "Voltar para cima" -->
+    <button id="btn-top" onclick="scrollToTop()">Voltar para cima</button>
+
+    <!-- Código JavaScript -->
+    <script>
+        // Mostrar o botão quando a página for rolada para baixo
+        window.onscroll = function () {
+            const btnTop = document.getElementById('btn-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                btnTop.classList.add('show');
+            } else {
+                btnTop.classList.remove('show');
+            }
+        };
+
+        // Função para rolar a página até o topo
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Ação ao carregar a página
+        window.onload = () => {
+            // Define a duração da animação de carregamento (3 segundos)
+            setTimeout(() => {
+                // Esconde a tela de carregamento
+                document.getElementById('loading-screen').style.display = 'none';
+
+                // Exibe o conteúdo da página
+                document.getElementById('content').style.display = 'block';
+            }, 3000); // O tempo pode ser ajustado conforme necessário (em milissegundos)
+        };
+    </script>
+</body>
+</html>
